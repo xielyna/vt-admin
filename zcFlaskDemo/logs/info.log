@@ -1,0 +1,10 @@
+2021-06-16 20:15:32.472 | INFO     | werkzeug._internal:_log:225 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-06-16 20:15:47.329 | INFO     | werkzeug._internal:_log:225 - 127.0.0.1 - - [16/Jun/2021 20:15:47] "GET / HTTP/1.1" 200 -
+2021-06-16 20:15:47.643 | INFO     | werkzeug._internal:_log:225 - 127.0.0.1 - - [16/Jun/2021 20:15:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2021-06-16 20:16:40.264 | INFO     | werkzeug._internal:_log:225 - 127.0.0.1 - - [16/Jun/2021 20:16:40] "GET / HTTP/1.1" 200 -
+2021-06-16 20:17:08.366 | INFO     | werkzeug._internal:_log:225 - 127.0.0.1 - - [16/Jun/2021 20:17:08] "GET /api/list HTTP/1.1" 200 -
+2021-06-16 20:17:16.263 | INFO     | werkzeug._internal:_log:225 - 127.0.0.1 - - [16/Jun/2021 20:17:16] "GET /joke/api/list HTTP/1.1" 200 -
+2021-06-16 20:20:13.816 | INFO     | werkzeug._internal:_log:225 - 127.0.0.1 - - [16/Jun/2021 20:20:13] "GET /joke/api/list HTTP/1.1" 200 -
+2021-06-16 20:23:24.697 | INFO     | werkzeug._internal:_log:225 - 127.0.0.1 - - [16/Jun/2021 20:23:24] "POST /user/api/login HTTP/1.1" 200 -
+2021-06-16 20:24:01.302 | INFO     | werkzeug._internal:_log:225 - 127.0.0.1 - - [16/Jun/2021 20:24:01] "GET /joke/api/list?token=eyJhbGciOiJIUzUxMiIsImlhdCI6MTYyMzg0NjIwNCwiZXhwIjoxNjIzODUzNDA0fQ.eyJ1c2VybmFtZSI6InRlc3QifQ.lxUI92VQvZuONo-44NsIEDOE0eMJKZrPLXxm25RHsir2WT-rR5yerFswiaeJ-Dr1TUxlx6DKZ6lB4v6T_3iezg HTTP/1.1" 200 -
+2021-06-16 20:26:45.916 | INFO     | werkzeug._internal:_log:225 - 127.0.0.1 - - [16/Jun/2021 20:26:45] "GET /joke/api/list?token=eyJhbGciOiJIUzUxMiIsImlhdCI6MTYyMzg0NjIwNCwiZXhwIjoxNjIzODUzNDA0fQ.eyJ1c2VybmFtZSI6InRlc3QifQ.lxUI92VQvZuONo-44NsIEDOE0eMJKZrPLXxm25RHsir2WT-rR5yerFswiaeJ-Dr1TUxlx6DKZ6lB4v6T_3iezg HTTP/1.1" 200 -
