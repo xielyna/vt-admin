@@ -14,7 +14,8 @@ module.exports = {
   rules: {
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/member-delimiter-style': ['error',
+    '@typescript-eslint/member-delimiter-style': [
+      'error',
       {
         multiline: {
           delimiter: 'none'
@@ -22,7 +23,8 @@ module.exports = {
         singleline: {
           delimiter: 'comma'
         }
-      }],
+      }
+    ],
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -52,3 +54,64 @@ module.exports = {
     }
   ]
 }
+// module.exports = {
+//   root: true,
+//   env: {
+//     browser: true,
+//     node: true,
+//     es6: true
+//   },
+//   extends: [
+//     'plugin:vue/recommended',
+//     '@vue/typescript',
+//     'plugin:prettier/recommended',
+//     'prettier/vue'
+//   ],
+//   rules: {
+//     curly: 'error',
+//     'prefer-const': 'error',
+//     'no-unused-vars': 0,
+//     'vue/no-v-html': 0,
+//     'vue/order-in-components': 2,
+//     quotes: [1, 'single'], //使用单引号，提示是警告
+//     quotes: [0, 'double'], //使用双引号，关闭
+//     'vue/max-attributes-per-line': [
+//       0,
+//       {
+//         singleline: 2,
+//         multiline: {
+//           max: 1,
+//           allowFirstLine: false
+//         }
+//       }
+//     ],
+//     'lines-between-class-members': [
+//       'error',
+//       'always',
+//       {
+//         exceptAfterSingleLine: true
+//       }
+//     ],
+//     'no-extra-semi': 0,
+//     'vue/html-indent': [
+//       0,
+//       'tab',
+//       {
+//         attribute: 1,
+//         baseIndent: 1,
+//         closeBracket: 0,
+//         alignAttributesVertically: true,
+//         ignores: []
+//       }
+//     ],
+//     'vue/html-closing-bracket-newline': 0,
+//     'vue/html-self-closing': 0,
+//     'vue/singleline-html-element-content-newline': [
+//       'error',
+//       {
+//         ignoreWhenNoAttributes: true,
+//         ignoreWhenEmpty: true
+//       }
+//     ]
+//   }
+// }

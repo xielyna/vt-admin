@@ -1,4 +1,8 @@
-dist/*.js
+# dist/*.js
+# src/assets
+# tests/unit/coverage
+# public/**/*.js
+build/*.js
 src/assets
-tests/unit/coverage
-public/**/*.js
+public
+dist

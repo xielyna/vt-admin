@@ -10,7 +10,7 @@ import { accessTokenAuth } from './security'
 import { connector, summarise } from 'swagger-routes-express'
 
 const app = express()
-const port = 9528
+const port = 9529
 
 // Compression
 app.use(compression())
@@ -20,10 +20,12 @@ app.use(morgan('dev'))
 app.use(cors())
 // POST, PUT, DELETE body parser
 app.use(express.json({ limit: '20mb' }))
-app.use(express.urlencoded({
-  limit: '20mb',
-  extended: false
-}))
+app.use(
+  express.urlencoded({
+    limit: '20mb',
+    extended: false
+  })
+)
 // No cache
 app.use((req, res, next) => {
   res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate')
@@ -72,7 +74,10 @@ function onError(error: any) {
   // handle specific listen errors with friendly messages
   switch (error.code) {
     case 'EACCES':
-      console.error('Express ERROR (app) : %s requires elevated privileges', bind)
+      console.error(
+        'Express ERROR (app) : %s requires elevated privileges',
+        bind
+      )
       process.exit(1)
     case 'EADDRINUSE':
       console.error('Express ERROR (app) : %s is already in use', bind)
