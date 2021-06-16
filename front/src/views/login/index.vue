@@ -3,11 +3,11 @@
     <el-form
       ref="loginForm"
       :model="loginForm"
-      :rules="loginRules"
       class="login-form"
       autocomplete="on"
       label-position="left"
     >
+      <!-- :rules="loginRules" -->
       <div class="title-container">
         <h3 class="title">
           {{ $t('login.title') }}
@@ -53,11 +53,10 @@
             @blur="capsTooltip = false"
             @keyup.enter.native="handleLogin"
           />
-          <span
-            class="show-pwd"
-            @click="showPwd"
-          >
-            <svg-icon :name="passwordType === 'password' ? 'eye-off' : 'eye-on'" />
+          <span class="show-pwd" @click="showPwd">
+            <svg-icon
+              :name="passwordType === 'password' ? 'eye-off' : 'eye-on'"
+            />
           </span>
         </el-form-item>
       </el-tooltip>
@@ -84,21 +83,18 @@
         <el-button
           class="thirdparty-button"
           type="primary"
-          @click="showDialog=true"
+          @click="showDialog = true"
         >
           {{ $t('login.thirdparty') }}
         </el-button>
       </div>
     </el-form>
 
-    <el-dialog
-      :title="$t('login.thirdparty')"
-      :visible.sync="showDialog"
-    >
+    <el-dialog :title="$t('login.thirdparty')" :visible.sync="showDialog">
       {{ $t('login.thirdpartyTips') }}
-      <br>
-      <br>
-      <br>
+      <br />
+      <br />
+      <br />
       <social-sign />
     </el-dialog>
   </div>
@@ -139,8 +135,8 @@ export default class extends Vue {
   }
 
   private loginForm = {
-    username: 'admin',
-    password: '111111'
+    username: 'test',
+    password: '123'
   }
 
   private loginRules = {
@@ -168,15 +164,16 @@ export default class extends Vue {
 
   mounted() {
     if (this.loginForm.username === '') {
-      (this.$refs.username as Input).focus()
+      ;(this.$refs.username as Input).focus()
     } else if (this.loginForm.password === '') {
-      (this.$refs.password as Input).focus()
+      ;(this.$refs.password as Input).focus()
     }
   }
 
   private checkCapslock(e: KeyboardEvent) {
     const { key } = e
-    this.capsTooltip = key !== null && key.length === 1 && (key >= 'A' && key <= 'Z')
+    this.capsTooltip =
+      key !== null && key.length === 1 && key >= 'A' && key <= 'Z'
   }
 
   private showPwd() {
@@ -186,21 +183,23 @@ export default class extends Vue {
       this.passwordType = 'password'
     }
     this.$nextTick(() => {
-      (this.$refs.password as Input).focus()
+      ;(this.$refs.password as Input).focus()
     })
   }
 
   private handleLogin() {
-    (this.$refs.loginForm as ElForm).validate(async(valid: boolean) => {
+    ;(this.$refs.loginForm as ElForm).validate(async (valid: boolean) => {
       if (valid) {
         this.loading = true
         await UserModule.Login(this.loginForm)
-        this.$router.push({
-          path: this.redirect || '/',
-          query: this.otherQuery
-        }).catch(err => {
-          console.warn(err)
-        })
+        this.$router
+          .push({
+            path: this.redirect || '/',
+            query: this.otherQuery
+          })
+          .catch(err => {
+            console.warn(err)
+          })
         // Just to simulate the time of the request
         setTimeout(() => {
           this.loading = false
@@ -226,8 +225,12 @@ export default class extends Vue {
 // References: https://www.zhangxinxu.com/wordpress/2018/01/css-caret-color-first-line/
 @supports (-webkit-mask: none) and (not (cater-color: $loginCursorColor)) {
   .login-container .el-input {
-    input { color: $loginCursorColor; }
-    input::first-line { color: $lightGray; }
+    input {
+      color: $loginCursorColor;
+    }
+    input::first-line {
+      color: $lightGray;
+    }
   }
 }
 
