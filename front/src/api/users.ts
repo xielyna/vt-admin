@@ -35,7 +35,7 @@ export const deleteUser = (username: string) =>
 
 export const login = (data: any) =>
   request({
-    url: '/users/api/login',
+    url: '/user/api/login',
     method: 'post',
     data
   })
