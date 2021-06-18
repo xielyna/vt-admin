@@ -202,6 +202,22 @@ export const asyncRoutes: RouteConfig[] = [
   // },
 
   {
+    path: '/jokes',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () =>
+          import(/* webpackChunkName: "jokes" */ '@/views/jokes/index.vue'),
+        name: 'Jokes',
+        meta: {
+          title: 'joke',
+          icon: 'international'
+        }
+      }
+    ]
+  },
+  {
     path: '*',
     redirect: '/404',
     meta: { hidden: true }

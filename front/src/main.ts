@@ -3,6 +3,7 @@ import Vue, { DirectiveOptions } from 'vue'
 import 'normalize.css'
 import ElementUI from 'element-ui'
 import SvgIcon from 'vue-svgicon'
+import '@/styles/bootstrap-utilities.css'
 
 import '@/styles/element-variables.scss'
 import '@/styles/index.scss'
@@ -32,12 +33,12 @@ Vue.use(SvgIcon, {
 
 // Register global directives
 Object.keys(directives).forEach(key => {
-  Vue.directive(key, (directives as { [key: string ]: DirectiveOptions })[key])
+  Vue.directive(key, (directives as { [key: string]: DirectiveOptions })[key])
 })
 
 // Register global filter functions
 Object.keys(filters).forEach(key => {
-  Vue.filter(key, (filters as { [key: string ]: Function })[key])
+  Vue.filter(key, (filters as { [key: string]: Function })[key])
 })
 
 Vue.config.productionTip = false
@@ -46,5 +47,5 @@ new Vue({
   router,
   store,
   i18n,
-  render: (h) => h(App)
+  render: h => h(App)
 }).$mount('#app')
