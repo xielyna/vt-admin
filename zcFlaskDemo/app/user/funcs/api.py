@@ -9,6 +9,7 @@ from flask import current_app, jsonify, request
 from app.user.modules.models import User
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 import json
+from .auth import load_token
 
 
 def api_login():
@@ -41,3 +42,26 @@ def api_login():
     data = {'code': 200, 'msg': '登录成功', 'data': data}
     return jsonify(data)
  
+
+def api_info():
+    token = request.args.get('token', '')
+    if not token:
+        return jsonify({'code': 400, 'msg': 'token is required'})
+
+    user_info = load_token(token)
+
+    if not user_info:
+        return jsonify({'code': 400, 'msg': 'user not exists'})
+    else:    
+        user = {
+            'id': 1,
+            'username': 'editor',
+            'password': 'any',
+            'name': 'Normal Editor',
+            'avatar': 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+            'introduction': 'I am an editor',
+            'email': 'editor@test.com',
+            'phone': '1234567890',
+            'roles': ['editor']
+        }
+        return jsonify({'code': 200, 'data': user})

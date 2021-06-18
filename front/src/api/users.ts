@@ -7,11 +7,10 @@ export const getUsers = (params: any) =>
     params
   })
 
-export const getUserInfo = (data: any) =>
+export const getUserInfo = (token: any) =>
   request({
-    url: '/users/info',
-    method: 'post',
-    data
+    url: `/user/api/info?token=${token}`,
+    method: 'get'
   })
 
 export const getUserByName = (username: string) =>
